@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brookstone Subdivision Market Report - Acworth, GA 30101</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1.2em;
+        }
+        
+        .subtitle {
+            color: #667eea;
+            font-size: 1em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .metric-label {
+            color: #718096;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .metric-value {
+            color: #2d3748;
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .metric-change {
+            color: #48bb78;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .metric-change.negative {
+            color: #f56565;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .chart-title {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .info-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-value {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏡 Brookstone Subdivision Market Report</h1>
+            <p>Acworth, Georgia 30101</p>
+            <p class="subtitle">Comprehensive Market Analysis • Updated November 2025</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Sales</div>
+                <div class="metric-value">4</div>
+                <div class="metric-change">Recent activity</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Sales Volume</div>
+                <div class="metric-value">$2.70M</div>
+                <div class="metric-change">Strong market performance</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Sales Price</div>
+                <div class="metric-value">$676,150</div>
+                <div class="metric-change">Premium pricing maintained</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg List Price</div>
+                <div class="metric-value">$684,700</div>
+                <div class="metric-change">Well-positioned listings</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Price per Sq Ft</div>
+                <div class="metric-value">$0.99</div>
+                <div class="metric-change">$/sq.ft. - List</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Sold Price/Sq Ft</div>
+                <div class="metric-value">$0.98</div>
+                <div class="metric-change">Close to asking price</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Days on Market</div>
+                <div class="metric-value">39 days</div>
+                <div class="metric-change">Fast-moving inventory</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Time to DOM</div>
+                <div class="metric-value">77 days</div>
+                <div class="metric-change">Market timing indicator</div>
+            </div>
+        </div>
+        
+        <div class="charts-row">
+            <div class="chart-container">
+                <h3 class="chart-title">📊 Price Analysis</h3>
+                <canvas id="priceChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h3 class="chart-title">⏱️ Market Timing Metrics</h3>
+                <canvas id="timingChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3 class="chart-title">💰 Price Comparison: List vs. Sold</h3>
+            <canvas id="comparisonChart"></canvas>
+        </div>
+        
+        <div class="info-section">
+            <h2>📍 About Brookstone Subdivision</h2>
+            <p><strong>Location:</strong> Acworth, Georgia 30101 (Cobb County)</p>
+            <p><strong>Market Overview:</strong> The Brookstone subdivision represents a premium residential community in the desirable Acworth area. This report combines data from Brookstone 1, 2, and 3, providing a comprehensive view of market activity across all sections.</p>
+            <p><strong>Current Market Conditions:</strong> With an average sales price of $676,150 and homes selling in an average of 39 days, the Brookstone market demonstrates strong buyer interest and healthy demand. The close alignment between list and sold prices ($684,700 vs $676,150) indicates realistic pricing strategies and motivated buyers.</p>
+            <p><strong>Investment Insight:</strong> The consistent price per square foot metrics ($0.99 list, $0.98 sold) show pricing stability and predictability, making this an attractive area for both buyers and sellers.</p>
+        </div>
+        
+        <div class="info-section">
+            <h2>📈 Market Insights</h2>
+            <p><strong>Pricing Trends:</strong> Properties in Brookstone are achieving 98.8% of their list price on average, indicating a balanced market where homes are priced competitively and attracting serious buyers.</p>
+            <p><strong>Sales Velocity:</strong> With homes averaging 39 days on market, Brookstone outperforms many comparable subdivisions in the area. This suggests strong desirability and effective marketing strategies.</p>
+            <p><strong>Buyer Activity:</strong> The $2.7M in recent sales volume across just 4 transactions demonstrates the premium nature of this subdivision and sustained high-value activity.</p>
+        </div>
+        
+        <div class="footer">
+            <p>This report is generated for informational purposes. Data reflects recent market activity in zip code 30101.</p>
+            <p>© 2025 Brookstone Market Report • Acworth, GA</p>
+        </div>
+    </div>
+    
+    <script>
+        // Price Analysis Chart
+        const priceCtx = document.getElementById('priceChart').getContext('2d');
+        new Chart(priceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Average List Price', 'Average Sales Price', 'List Price Original'],
+                datasets: [{
+                    label: 'Price ($)',
+                    data: [684700, 676150, 687225],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(118, 75, 162, 0.8)',
+                        'rgba(72, 187, 120, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(118, 75, 162, 1)',
+                        'rgba(72, 187, 120, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return '$' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000).toFixed(0) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Market Timing Chart
+        const timingCtx = document.getElementById('timingChart').getContext('2d');
+        new Chart(timingCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Avg Days on Market', 'Avg Time to DOM'],
+                datasets: [{
+                    data: [39, 77],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(245, 101, 101, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(245, 101, 101, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed + ' days';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Price Comparison Chart
+        const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+        new Chart(comparisonCtx, {
+            type: 'line',
+            data: {
+                labels: ['List Price/Sq.Ft.', 'Sold Price/Sq.Ft.'],
+                datasets: [{
+                    label: 'Price per Square Foot',
+                    data: [0.99, 0.98],
+                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(118, 75, 162, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return '$' + context.parsed.y.toFixed(2) + ' per sq.ft.';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 0.95,
+                        max: 1.00,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
